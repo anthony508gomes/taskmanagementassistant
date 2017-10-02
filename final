@@ -1,0 +1,44 @@
+def main():
+    print('***TIME MANAGEMENT ASSISTANT***')
+    x = int(input("What is the number of tasks that you need to complete?: "))
+    print("What time will you start?")
+    hour = int(input("Hour: "))
+    minute = int(input("Min: "))
+    totalminutes = 0.0
+    minuteslist = []
+
+    for i in range(x):
+             print("Task", i + 1)
+             TaskDescription = input("Task Description: ")
+             minutes = eval(input("How many minutes will this task take?: "))
+             totalminutes = minutes + totalminutes 
+             minuteslist.append(minutes)
+             
+    minutesPerHour = 60
+    totalhours = totalminutes // minutesPerHour
+
+    remainingMinutes = totalminutes % minutesPerHour
+    hoursperday = 24
+    totaldays = totalhours // hoursperday
+    remainingHours = totalhours % hoursperday
+                                
+    print('The total time is {} day(s) {} hour(s) {} minute(s)'.format(int(totaldays), int(remainingHours), int(remainingMinutes)))
+
+    if totaldays == 0:
+        print('You will finish your tasks today.')
+    elif totaldays == 1:
+        print('You will be done tomorrow.')
+    else:
+        print('You will be done later than tomorrow.')
+
+    def mean(numbers):
+        return float(sum(numbers)) / max(len(numbers), 1)
+
+    print('AVERAGE TASK LENGTH: ', mean(minuteslist), ' minutes.')
+    print("LONGEST TASK: ", max(minuteslist), ' minutes.')
+
+main()
+
+
+
+
